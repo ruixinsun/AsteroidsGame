@@ -23,27 +23,5 @@ class Spaceship extends Floater
      myDirectionX= myDirectionY=0; //holds x and y coordinates of the vector for direction of travel   
      myPointDirection=0; //holds current direction the ship is pointing in degrees    
    }
-   public void move ()
-{  
-  //Moves the floater towards the coordinates
-  //myDirectionX and myDirectionY
 
-  //move the floater in the current direction of travel
-  myCenterX += myDirectionX;
-  myCenterY += myDirectionY;
-
-  //wrap around screen
-  if(myCenterX >width){
-    myCenterX = 0;
-  }
-  else if (myCenterX<0){
-    myCenterX = width;
-  }
-  if(myCenterY >height){
-    myCenterY = 0;
-  }
-  else if (myCenterY < 0){
-    myCenterY = height;
-  }
-}
 }
