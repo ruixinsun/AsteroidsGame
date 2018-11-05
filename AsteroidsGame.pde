@@ -1,10 +1,26 @@
-//your variable declarations here
+Spaceship s;
 public void setup() 
 {
-  //your code here
+  size(500,500);
+  s = new Spaceship();
 }
 public void draw() 
 {
-  //your code here
+  background(0);
+  s.show();
+  s.move();
 }
-
+public void keyPressed()
+{
+  if (key == 'w')
+  {
+    s.accelerate(2);
+  }
+  if (key == 's')
+  {
+    s.accelerate(-2);
+  }
+  
+  
+  
+}
