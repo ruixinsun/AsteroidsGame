@@ -1,15 +1,15 @@
-public class Stars //note that this class does NOT extend Floater
+public class Star //note that this class does NOT extend Floater
 {
   private int x,y; 
   
-  public Stars()
+  public Star()
   {
     x = (int)(Math.random()*500);
-    x = (int)(Math.random()*500);
+    y = (int)(Math.random()*500);
   }
   public void show()
   {
     fill(255);
-    ellipse(x, y, 3, 3);
+    ellipse(x, y, 2, 2);
   }
 }
