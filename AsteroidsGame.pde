@@ -1,13 +1,13 @@
 Spaceship s;
-Stars[] stark;
+Star[] stark;
 public void setup() 
 {
   size(500,500);
   s = new Spaceship();
-  stark = new Stars[100];
+  stark = new Star[200];
   for(int i=0; i<stark.length; i++)
   {
-    stark[i] = new Stars();
+    stark[i] = new Star();
   }
 }
 public void draw() 
@@ -15,7 +15,10 @@ public void draw()
   background(0);
   s.show();
   s.move();
-  stark.show();
+  for(int i=0; i<stark.length; i++)
+  {
+    stark[i].show();
+  }
 }
 public void keyPressed()
 {
@@ -29,11 +32,11 @@ public void keyPressed()
   }
   if (keyCode == LEFT)
   {
-    s.turn(-2);
+    s.turn(-8);
   }
   if (keyCode == RIGHT)
   {
-    s.turn(2);
+    s.turn(8);
   }
   if (keyCode == SHIFT)
   {
