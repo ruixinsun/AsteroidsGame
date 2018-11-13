@@ -1,23 +1,28 @@
 Spaceship s;
-Star[] stark;
+
+Star[] stars;
+Asteroid a;
+
 public void setup() 
 {
   size(500,500);
   s = new Spaceship();
-  stark = new Star[200];
-  for(int i=0; i<stark.length; i++)
+  stars = new Star[200];
+  for(int i=0; i<stars.length; i++)
   {
-    stark[i] = new Star();
+    stars[i] = new Star();
   }
+  a = new Asteroid();
 }
 public void draw() 
 {
   background(0);
   s.show();
   s.move();
-  for(int i=0; i<stark.length; i++)
+  a.show();
+  for(int i=0; i<stars.length; i++)
   {
-    stark[i].show();
+    stars[i].show();
   }
 }
 public void keyPressed()
