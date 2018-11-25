@@ -1,7 +1,6 @@
 Spaceship s;
-
 Star[] stars;
-Asteroid a;
+ArrayList<Asteroid> a;
 
 public void setup() 
 {
@@ -12,18 +11,34 @@ public void setup()
   {
     stars[i] = new Star();
   }
-  a = new Asteroid();
+  a = new ArrayList<Asteroid>();
+  for(int i=0; i<10; i++)
+  {
+    a.add(new Asteroid());
+  }
 }
 public void draw() 
 {
   background(0);
   s.show();
   s.move();
-  a.show();
+  
   for(int i=0; i<stars.length; i++)
   {
     stars[i].show();
   }
+  for(int i=0; i<10; i++)
+  {
+    a.get(i).show();
+    a.get(i).move();
+  }
+  /*for (int j=0; j<a.size(); j++)
+   {
+     if (dist(s.getX(), s.getY(), a.get(j).getX(), a.get(j).getY())<38)
+     {
+       a.remove(j);
+     }
+   }*/
 }
 public void keyPressed()
 {
