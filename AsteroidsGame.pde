@@ -32,13 +32,6 @@ public void draw()
     a.get(i).show();
     a.get(i).move();
   }
-  /*for (int j=0; j<a.size(); j++)
-   {
-     if (dist(s.getX(), s.getY(), a.get(j).getX(), a.get(j).getY())<38)
-     {
-       a.remove(j);
-     }
-   }*/
 }
 public void keyPressed()
 {
