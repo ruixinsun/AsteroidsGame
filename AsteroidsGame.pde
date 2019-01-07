@@ -1,6 +1,7 @@
 Spaceship s;
 Star[] stars;
 ArrayList<Asteroid> a;
+ArrayList<Bullet> mag;
 
 public void setup() 
 {
@@ -16,7 +17,10 @@ public void setup()
   {
     a.add(new Asteroid());
   }
+  mag = new ArrayList<Bullet>();
 }
+
+
 public void draw() 
 {
   background(0);
@@ -32,16 +36,31 @@ public void draw()
     a.get(i).show();
     a.get(i).move();
   }
-  for (int j=0; j<a.size(); j++)
-   {
-     a.get(j).move();
-     a.get(j).show();
-   if (dist(s.getX(), s.getY(), a.get(j).getX(), a.get(j).getY())<30)
-   {
-     a.remove(j);
-   }
-   }
+  for (int i=0; i<mag.size(); i++)
+  {
+    mag.get(i).show();
+    mag.get(i).move();
+  }
+   for(int i = 0; i < a.size(); i++)
+  {
+    for(int j = 0; j < mag.size(); j++)
+    {
+      if(dist(a.get(i).getX(),a.get(i).getY(),mag.get(j).getX(),mag.get(j).getY())<30)
+      {
+        mag.remove(j);
+        a.remove(i);
+        break;
+      }
+    }
+  }
+ 
+
+
 }
+ public void mousePressed()
+ {
+   mag.add(new Bullet(s));
+ }
 public void keyPressed()
 {
   if (keyCode == UP)
@@ -68,4 +87,14 @@ public void keyPressed()
     s.setDirectionY(0);
     s.setPointDirection((int)(Math.random()*360));
   }
+  
+
 }
+
+
+
+
+
+  
+  
+
