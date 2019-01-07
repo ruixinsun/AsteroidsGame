@@ -1,32 +1,39 @@
-
-class Bullet extends Floater  
+class Bullet extends Floater
 {
+public void setX(int x){myCenterX=x;}  
+   public int getX(){return (int)myCenterX;}   
+   public void setY(int y){myCenterY=y;}  
+   public int getY(){return (int)myCenterY;}   
+   public void setDirectionX(double x){myDirectionX=x;}  
+   public double getDirectionX(){return myDirectionX;}   
+   public void setDirectionY(double y){myDirectionY=y;}   
+   public double getDirectionY(){return myDirectionY;}   
+   public void setPointDirection(int degrees){myPointDirection=degrees;}
+   public double getPointDirection(){return myPointDirection;}
+ 
   public Bullet(Spaceship theShip)
   {
-    myCenterX = 250;
-    myCenterY = 250;
-    double dRadians = myDirectionX*(Math.PI/180);   
-    myDirectionX = 5*Math.cos(dRadians);
-    myDirectionY = 5*Math.sin(dRadians);
+    myCenterX = theShip.getX();
+    myCenterY = theShip.getY();
+    myPointDirection = theShip.getPointDirection();
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX = 5 * Math.cos(dRadians) +theShip.getDirectionX();
+    myDirectionY = 5 * Math.sin(dRadians) + theShip.getDirectionY();
     
   }
-  
-  
-  
-  public void show ()  //Draws the floater at the current position  
-  {             
-    fill(myColor);   
-    stroke(myColor);    
-    translate((float)myCenterX, (float)myCenterY);
-    float dRadians = (float)(myPointDirection*(Math.PI/180));
-    rotate(dRadians);
-ellipse(10,10,10,10);
-    rotate(-1*dRadians);
-    translate(-1*(float)myCenterX, -1*(float)myCenterY);
-  }   
-  
-  
-  
+   
+   public void show()
+  {
+    fill(70,85,250);
+    ellipse((float)myCenterX,(float)myCenterY,7,7);
+  }
+  public void move(){
+    myCenterX += myDirectionX;
+    myCenterY += myDirectionY;
+  }
+   
+
+} 
   
   
   
